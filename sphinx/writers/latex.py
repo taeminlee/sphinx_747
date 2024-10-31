@@ -187,7 +187,7 @@ class Table:
                                                 self.colcount, _colsep) + CR
         else:
             total = sum(self.colwidths)
-            colspecs = [r'\X{%d}{%d}' % (width, total) for width in self.colcount]
+            colspecs = [r'\X{%d}{%d}' % (width, total) for width in self.colwidths]
             return f'{{{_colsep}{_colsep.join(colspecs)}{_colsep}}}' + CR
             # return '{' + _colsep + (('l' + _colsep) * self.colcount) + '}' + CR
 
