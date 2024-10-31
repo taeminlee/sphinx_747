@@ -37,7 +37,7 @@
 \begin{longtable}<%= table.get_colspec() %>
 <%- if table.caption -%>
 \sphinxthelongtablecaptionisattop
-\caption{<%= ''.join(table.caption) %>\strut}<%= labels %>\\*[\sphinxlongtablecapskipadjust]
+\caption*{<%= ''.join(table.caption) %>\strut}<%= labels %>\\*[\sphinxlongtablecapskipadjust]
 <% elif labels -%>
 \noalign{\phantomsection<%= labels %>}%
 <% endif -%>
