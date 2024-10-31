@@ -186,7 +186,10 @@ class Table:
             return r'{%s*{%d}{\X{1}{%d}%s}}' % (_colsep, self.colcount,
                                                 self.colcount, _colsep) + CR
         else:
-            return '{' + _colsep + (('l' + _colsep) * self.colcount) + '}' + CR
+            total = sum(self.colwidths)
+            colspecs = [r'\X{%d}{%d}' % (width, total) for width in self.colcount]
+            return f'{{{_colsep}{_colsep.join(colspecs)}{_colsep}}}' + CR
+            # return '{' + _colsep + (('l' + _colsep) * self.colcount) + '}' + CR
 
     def add_cell(self, height: int, width: int) -> None:
         """Adds a new cell to a table.
